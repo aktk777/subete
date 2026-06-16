@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { NumberField, ResultCard, AdSlot, AffiliateLink, Disclosure } from "@factory/ui";
+import { NumberField, ResultCard, AdSlot, Disclosure } from "@factory/ui";
 import { compute, yen, type YutaiCrossInput } from "./logic";
 
 const initial: YutaiCrossInput = {
@@ -45,9 +45,7 @@ export default function YutaiCrossCostTool() {
       <div className="section-gap" />
       <Disclosure />
       <p className="aff-note" style={{ marginTop: 10 }}>
-        ネット証券の手数料・貸株料は各社で異なります。口座比較は
-        <AffiliateLink href="https://example.com/aff/securities">こちら</AffiliateLink>
-        <span className="badge-pr">PR</span>
+        ※ネット証券の手数料・貸株料は各社で異なります。利用する証券会社の公式手数料ページの値を入力してください。
       </p>
 
       <div className="section-gap" />

@@ -1,4 +1,6 @@
 import { tools, byCategory } from "../lib/registry";
+import { creatives } from "@factory/monetization";
+import { AffiliateCreative, Disclosure } from "@factory/ui";
 
 export default function Home() {
   const groups = byCategory(tools); // live に絞るのは公開後。スキャフォールドでは全件表示。
@@ -21,6 +23,20 @@ export default function Home() {
           </div>
         </section>
       ))}
+
+      <section className="aff-partners">
+        <h2>提携先のおすすめ <span className="badge-pr">PR</span></h2>
+        <div className="aff-row">
+          <AffiliateCreative html={creatives["bz1ur6-468"]!.html} width={468} height={60} />
+        </div>
+        <p className="aff-text">
+          <AffiliateCreative html={creatives["rakuten-ichiba"]!.html} />
+          <span aria-hidden> ／ </span>
+          <AffiliateCreative html={creatives["rakuten-books"]!.html} />
+        </p>
+        <div className="section-gap" />
+        <Disclosure />
+      </section>
     </main>
   );
 }
