@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { tools, getTool } from "../../../lib/registry";
 import { toolComponents, toolContent, toolSchemas } from "../../../lib/tools";
-import { webApplicationSchema, relatedLinks } from "@factory/seo";
+import { SITE_NAME, webApplicationSchema, breadcrumbSchema, relatedLinks } from "@factory/seo";
+
+const SITE = process.env.NEXT_PUBLIC_SITE_URL || "";
 
 export function generateStaticParams() {
   return tools.map((t) => ({ slug: t.slug }));
@@ -11,10 +13,18 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const t = getTool(params.slug);
   if (!t) return {};
+  const url = `/tools/${t.slug}/`;
   return {
     title: t.title,
     description: t.description,
-    alternates: { canonical: `/tools/${t.slug}/` },
+    alternates: { canonical: url },
+    openGraph: {
+      type: "website",
+      siteName: SITE_NAME,
+      title: t.title,
+      description: t.description,
+      url,
+    },
   };
 }
 
@@ -27,9 +37,17 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
   const schema = toolSchemas[params.slug];
   const related = relatedLinks(tools, { slug: t.slug, category: t.category });
   const ld = webApplicationSchema({ slug: t.slug, title: t.title, description: t.description || "" });
+  const crumbs = breadcrumbSchema(
+    [{ name: SITE_NAME, path: "/" }, { name: t.title, path: `/tools/${t.slug}/` }],
+    SITE,
+  );
 
   return (
     <main>
+      <nav className="breadcrumb" aria-label="パンくず">
+        <a href="/">{SITE_NAME}</a><span aria-hidden> › </span><span>{t.title}</span>
+      </nav>
+
       <div className="tool-head">
         <h1>{t.title}</h1>
         {t.description ? <p className="lead">{t.description}</p> : null}
@@ -57,6 +75,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
       )}
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(crumbs) }} />
       {schema?.faqPage && (
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema.faqPage) }} />
       )}

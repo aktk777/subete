@@ -1,15 +1,22 @@
 import "./globals.css";
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
+import { SITE_NAME, websiteSchema, organizationSchema } from "@factory/seo";
 
-const GA4 = process.env.NEXT_PUBLIC_GA4_ID;
+// GA4 測定ID。公開値（HTMLに出る）なので既定値をコミットしてよい。
+// Cloudflare 等で環境変数 NEXT_PUBLIC_GA4_ID を設定すればそちらが優先される。
+const GA4 = process.env.NEXT_PUBLIC_GA4_ID || "G-0XD70PG5XZ";
 const ADSENSE = process.env.NEXT_PUBLIC_ADSENSE_CLIENT;
 const SITE = process.env.NEXT_PUBLIC_SITE_URL || "";
 
+const SITE_DESC = "面倒な計算・換算・見積をすぐに片付ける単機能ツールの集まり。";
+
 export const metadata: Metadata = {
   metadataBase: SITE ? new URL(SITE) : undefined,
-  title: { default: "便利ツール集", template: "%s | 便利ツール集" },
-  description: "面倒な計算・換算・見積をすぐに片付ける単機能ツールの集まり。",
+  title: { default: SITE_NAME, template: `%s | ${SITE_NAME}` },
+  description: SITE_DESC,
+  openGraph: { type: "website", siteName: SITE_NAME, locale: "ja_JP", title: SITE_NAME, description: SITE_DESC },
+  twitter: { card: "summary" },
 };
 
 export const viewport: Viewport = {
@@ -44,6 +51,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         )}
       </head>
       <body>
+        {/* サイト全体の構造化データ（E-E-A-T / AEO）。全ページ共通。 */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema(SITE)) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema(SITE)) }} />
         <header className="site">
           <div className="container">
             <div className="bar">

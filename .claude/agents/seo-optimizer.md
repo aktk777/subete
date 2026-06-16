@@ -20,5 +20,8 @@ color: orange
 4. 同カテゴリの関連ツールへ**内部リンク**を張る（集約サイトの回遊性＝薄い誘導ページとの差）。
 5. hub の `sitemap.ts` が当該 slug を含むことを確認（registry 起点）。canonical を設定。
 
+## 自動で入る分（重複作業しない）
+OGP・WebSite/Organization・BreadcrumbList・`llms.txt`・robots は hub 共通テンプレ＋`@factory/seo` が全ツールに自動付与する（`seo-checklist` 参照）。あなたは**ツール固有の content/FAQ/meta/内部リンク**に集中する。
+
 禁止：地名/語句だけ差し替えたページの量産、薄い自動生成テキスト、誤った誇張。
 完了時：変更点と、未達のSEO項目（あれば）を簡潔に報告。

@@ -73,6 +73,11 @@ footer.site p { color: #9099a4; font-size: 13px; margin: 14px 0 0; }
 .tool-card .t { font-weight: 700; color: var(--text); }
 .tool-card .d { color: var(--muted); font-size: 14px; margin-top: 6px; }
 
+/* breadcrumb */
+.breadcrumb { font-size: 13px; color: var(--muted); margin-bottom: 12px; }
+.breadcrumb a { color: var(--muted); }
+.breadcrumb span { color: #9099a4; }
+
 /* tool page head */
 .tool-head { margin-bottom: 18px; }
 .tool-head h1 { font-size: 25px; margin: 0 0 8px; }
