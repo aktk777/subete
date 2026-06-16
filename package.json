@@ -1,0 +1,21 @@
+{
+  "name": "longtail-tool-factory",
+  "private": true,
+  "version": "0.1.0",
+  "packageManager": "pnpm@9.0.0",
+  "scripts": {
+    "build": "pnpm --filter hub build",
+    "dev": "pnpm --filter hub dev",
+    "preview": "pnpm --filter hub dev",
+    "preview:static": "pnpm --filter hub build && npx --yes serve apps/hub/out -l 5050",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "echo \"TODO: add eslint\" && exit 0",
+    "registry:check": "node scripts/update-registry.mjs --check"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0",
+    "vitest": "^2.0.0",
+    "@types/node": "^20.0.0"
+  }
+}

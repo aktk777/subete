@@ -1,0 +1,39 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@factory/ui": [
+        "../../packages/ui/src"
+      ],
+      "@factory/seo": [
+        "../../packages/seo/src"
+      ],
+      "@factory/monetization": [
+        "../../packages/monetization/src"
+      ],
+      "@factory/analytics": [
+        "../../packages/analytics/src"
+      ]
+    },
+    "allowJs": true,
+    "noEmit": true,
+    "incremental": true
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "../../tools/**/*.ts",
+    "../../tools/**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

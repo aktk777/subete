@@ -1,0 +1,23 @@
+{
+  "$schema": "./registry.schema.json",
+  "updatedAt": "2026-06-15",
+  "tools": [
+    {
+      "slug": "yutai-cross-cost",
+      "title": "優待クロス コスト計算（つなぎ売りの費用シミュレーター）",
+      "industry": "個別株投資家",
+      "task": "優待クロス（つなぎ売り）の手数料・貸株料・逆日歩などの合計コストを計算する",
+      "rail": "B",
+      "category": "投資の計算",
+      "formula_sources": [
+        "https://www.jpx.co.jp/ (各証券会社の手数料・貸株料の公開ページに差し替えること)"
+      ],
+      "affiliate_targets": ["ネット証券口座"],
+      "status": "building",
+      "quality_gate_passed": false,
+      "url": "",
+      "publishedAt": "",
+      "metricsRef": ""
+    }
+  ]
+}

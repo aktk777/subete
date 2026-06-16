@@ -1,0 +1,33 @@
+name: Deploy (manual)
+
+# 本番デプロイは人間承認が必須（spec §7.3）。このワークフローは自動実行されず、
+# GitHub の「Run workflow」ボタン（= 人間の明示操作）でのみ走る。
+# ※ もっと簡単なのは Cloudflare ダッシュボードで Git 連携する方法（DEPLOY.md 参照）。
+#    その場合このワークフローは不要。
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Enable pnpm (corepack)
+        run: corepack enable
+      - name: Install
+        run: pnpm install --frozen-lockfile
+      - name: Build (static export)
+        run: pnpm --filter hub build
+        env:
+          NEXT_PUBLIC_SITE_URL: ${{ vars.NEXT_PUBLIC_SITE_URL }}
+          NEXT_PUBLIC_GA4_ID: ${{ vars.NEXT_PUBLIC_GA4_ID }}
+          NEXT_PUBLIC_ADSENSE_CLIENT: ${{ vars.NEXT_PUBLIC_ADSENSE_CLIENT }}
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy apps/hub/out --project-name=benri-tools

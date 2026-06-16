@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Factory Tool Registry",
+  "type": "object",
+  "required": ["tools"],
+  "properties": {
+    "updatedAt": { "type": "string" },
+    "tools": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["slug", "title", "industry", "task", "rail", "status"],
+        "properties": {
+          "slug": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+          "title": { "type": "string" },
+          "industry": { "type": "string" },
+          "task": { "type": "string" },
+          "rail": { "type": "string", "enum": ["A", "B", "B(A)", "A(B)"] },
+          "category": { "type": "string" },
+          "formula_sources": { "type": "array", "items": { "type": "string" } },
+          "affiliate_targets": { "type": "array", "items": { "type": "string" } },
+          "status": { "type": "string", "enum": ["backlog", "building", "qa", "preview", "live", "retired"] },
+          "quality_gate_passed": { "type": "boolean" },
+          "url": { "type": "string" },
+          "publishedAt": { "type": "string" },
+          "metricsRef": { "type": "string" }
+        }
+      }
+    }
+  }
+}

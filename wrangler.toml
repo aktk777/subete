@@ -1,0 +1,7 @@
+# Cloudflare Pages 設定（任意：CLI/CIからデプロイする場合に使う）。
+# 静的書き出し apps/hub/out を配信する。
+# name は Cloudflare で作成する Pages プロジェクト名に合わせること（人間が作成）。
+# ※ 推奨はダッシュボードで Git 連携する方法（DEPLOY.md 参照）。その場合この toml は不要。
+name = "benri-tools"
+pages_build_output_dir = "apps/hub/out"
+compatibility_date = "2024-06-01"

@@ -1,0 +1,19 @@
+{
+  "webApplication": {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "優待クロス コスト計算ツール",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" }
+  },
+  "faqPage": {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "貸株料率はどこを見ればいい？", "acceptedAnswer": { "@type": "Answer", "text": "利用する証券会社の一般信用 売建の貸株料(年率)ページに記載があります。会社ごとに異なるため、その値を入力してください。" } },
+      { "@type": "Question", "name": "逆日歩はなぜ入力式なの？", "acceptedAnswer": { "@type": "Answer", "text": "逆日歩は権利日後に事後決定される変動値で事前に確定しないため、発生した実額(1株あたり)を入力する設計です。" } },
+      { "@type": "Question", "name": "このツールで注文できますか？", "acceptedAnswer": { "@type": "Answer", "text": "できません。コストの計算・記録のみで、発注機能や銘柄推奨はありません。" } }
+    ]
+  }
+}
