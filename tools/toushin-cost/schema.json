@@ -1,0 +1,19 @@
+{
+  "webApplication": {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "投資信託コスト計算（信託報酬の将来差シミュレーター）",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" }
+  },
+  "faqPage": {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "信託報酬の差はそんなに重要？", "acceptedAnswer": { "@type": "Answer", "text": "積立期間が長く金額が大きいほど複利で効き、年0.4%の差でも数十年では数十万〜百万円規模の差になり得ます。実際の数字はツールで確認してください。" } },
+      { "@type": "Question", "name": "想定リターンは何%にすればいい？", "acceptedAnswer": { "@type": "Answer", "text": "年3〜7%程度で試す例が多いですが、あくまで仮定で将来を保証する値ではありません。複数の値で試してください。" } },
+      { "@type": "Question", "name": "このツールで投資信託を買えますか？", "acceptedAnswer": { "@type": "Answer", "text": "できません。コストと将来資産の計算のみで、特定銘柄の推奨や注文機能はありません。" } }
+    ]
+  }
+}

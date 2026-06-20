@@ -1,6 +1,7 @@
 import dynamic from "next/dynamic";
 import type { ComponentType } from "react";
 import yutaiSchema from "../../../tools/yutai-cross-cost/schema.json";
+import toushinSchema from "../../../tools/toushin-cost/schema.json";
 
 /**
  * slug → ツールUI（client component）の対応表。ツールを1本追加するたびにここへ1行足す。
@@ -8,7 +9,7 @@ import yutaiSchema from "../../../tools/yutai-cross-cost/schema.json";
  */
 export const toolComponents: Record<string, ComponentType> = {
   "yutai-cross-cost": dynamic(() => import("../../../tools/yutai-cross-cost/ui")),
-  // "next-slug": dynamic(() => import("../../../tools/next-slug/ui")),
+  "toushin-cost": dynamic(() => import("../../../tools/toushin-cost/ui")),
 };
 
 /**
@@ -17,7 +18,7 @@ export const toolComponents: Record<string, ComponentType> = {
  */
 export const toolContent: Record<string, ComponentType> = {
   "yutai-cross-cost": dynamic(() => import("../../../tools/yutai-cross-cost/content.mdx")),
-  // "next-slug": dynamic(() => import("../../../tools/next-slug/content.mdx")),
+  "toushin-cost": dynamic(() => import("../../../tools/toushin-cost/content.mdx")),
 };
 
 /** ツールの構造化データ（schema.json）。FAQPage をページに JSON-LD として注入する。 */
@@ -27,5 +28,5 @@ export interface ToolSchema {
 }
 export const toolSchemas: Record<string, ToolSchema> = {
   "yutai-cross-cost": yutaiSchema as ToolSchema,
-  // "next-slug": nextSlugSchema as ToolSchema,
+  "toushin-cost": toushinSchema as ToolSchema,
 };

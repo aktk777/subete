@@ -18,6 +18,23 @@
       "url": "",
       "publishedAt": "",
       "metricsRef": ""
+    },
+    {
+      "slug": "toushin-cost",
+      "title": "投資信託コスト計算（信託報酬で将来いくら差がつくか）",
+      "industry": "つみたて投資・NISA初心者",
+      "task": "信託報酬の違いで将来資産にいくら差がつくかを積立条件から計算する",
+      "rail": "B",
+      "category": "投資の計算",
+      "formula_sources": [
+        "https://www.fsa.go.jp/policy/nisa2/ （金融庁 資産運用シミュレーションのモデルに準拠）"
+      ],
+      "affiliate_targets": ["ネット証券口座（NISA）"],
+      "status": "building",
+      "quality_gate_passed": false,
+      "url": "",
+      "publishedAt": "",
+      "metricsRef": ""
     }
   ]
 }
