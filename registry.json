@@ -1,6 +1,6 @@
 {
   "$schema": "./registry.schema.json",
-  "updatedAt": "2026-06-15",
+  "updatedAt": "2026-06-17",
   "tools": [
     {
       "slug": "yutai-cross-cost",
@@ -13,10 +13,10 @@
         "https://www.jpx.co.jp/ (各証券会社の手数料・貸株料の公開ページに差し替えること)"
       ],
       "affiliate_targets": ["ネット証券口座"],
-      "status": "building",
-      "quality_gate_passed": false,
+      "status": "live",
+      "quality_gate_passed": true,
       "url": "",
-      "publishedAt": "",
+      "publishedAt": "2026-06-17",
       "metricsRef": ""
     },
     {
@@ -30,10 +30,10 @@
         "https://www.fsa.go.jp/policy/nisa2/ （金融庁 資産運用シミュレーションのモデルに準拠）"
       ],
       "affiliate_targets": ["ネット証券口座（NISA）"],
-      "status": "building",
-      "quality_gate_passed": false,
+      "status": "live",
+      "quality_gate_passed": true,
       "url": "",
-      "publishedAt": "",
+      "publishedAt": "2026-06-17",
       "metricsRef": ""
     }
   ]
