@@ -26,6 +26,20 @@ frontmatter の `model` はエイリアス（opus/sonnet/haiku）で書く。
 ## 公開可否（quality-gate のブロッカー条件）
 機能性(テスト緑)／独自性(類似度しきい値以下)／公式出典あり／必須ページ(About/Contact/Privacy/Terms)あり／Core Web Vitals／規制pass／PR表記あり。1つでも欠ければ**公開しない**。
 
+## 公開・運用フロー（現行の運用方針）
+1. ツール実装：`tool-spec`→`jp-compliance`→`tool-scaffold`の6ファイル→テスト緑→SEO/構造化データ。registry は `status: building`。
+2. ローカルで `pnpm --filter hub build` ＋プレビューで動作確認。
+3. **オーナーが確認 → 公開承認**。このプロジェクトでは「オーナーの確認」を最終品質ゲートとする（`quality-rubric`/`quality-gate` は自動チェックの補助）。
+4. 承認＝**`main` に push** → Cloudflare Pages が自動で本番ビルド＆デプロイ。**push＝本番反映なので、オーナーの承認なしに push しない**。
+5. registry を `status: live`, `quality_gate_passed: true`, `publishedAt` に更新（live で sitemap 掲載・同カテゴリ相互内部リンクが有効化）。
+6. 公開後タスク（下記）を実施。
+
+## 公開後にやること
+- **Search Console にサイトマップ送信**（`sitemap.xml`）。※プロパティ登録・所有権確認・送信は**人間の操作**（GSC API 資格情報を Secrets に入れれば将来自動化可）。手順は `SETUP-ANALYTICS.md`。
+- **計測確認**（GA4 リアルタイムでアクセスが拾えるか）。
+- **アフィリ枠の設置**：該当ツールに合う承認リンクを受領後、結果直下に設置（`monetization`・PR表記必須）。
+- **AdSense**：審査通過後に発行者IDを受領して枠に注入（段階投入）。
+
 ## マネタイズは段階投入
 枠予約 → **アフィリ先行** → トラフィック後に人間が AdSense 申請 → 発行者ID受領 → エージェントが枠に注入。
 

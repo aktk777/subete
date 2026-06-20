@@ -9,9 +9,8 @@ description: >
 
 詳細：`references/deploy-steps.md`。
 
-1. `registry.json.quality_gate_passed === true` を確認（false は中止）。
-2. `pnpm --filter hub build` → `apps/hub/out/`（静的）。
-3. プレビュー用意 → **人間承認を待つ**（本番は承認なしに出さない）。
-4. 承認後：Cloudflare Pages へデプロイ（CI または手動）。
-5. `sitemap.xml` 更新を確認 → Search Console に index 申請（資格情報があれば自動）。
-6. `registry.json` を `status: live`、`url`/`publishedAt` 更新。
+1. `pnpm --filter hub build` → `apps/hub/out/`（静的）。ローカルプレビューで動作確認。
+2. **オーナーの公開承認を待つ**（このプロジェクトではオーナー確認＝最終品質ゲート。本番は承認なしに出さない）。
+3. 承認後＝**`main` に push** → Cloudflare Pages が自動で本番デプロイ（手動なら `wrangler pages deploy apps/hub/out`）。
+4. `registry.json` を `status: live`, `quality_gate_passed: true`, `publishedAt` 更新（→ sitemap 掲載・同カテゴリ相互内部リンクが有効化）。
+5. 公開後：**Search Console に `sitemap.xml` を送信**（※人間の操作。GSC API 資格情報があれば自動化可。手順は `SETUP-ANALYTICS.md`）。GA4 で計測確認。
