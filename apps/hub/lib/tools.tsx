@@ -2,6 +2,8 @@ import dynamic from "next/dynamic";
 import type { ComponentType } from "react";
 import yutaiSchema from "../../../tools/yutai-cross-cost/schema.json";
 import toushinSchema from "../../../tools/toushin-cost/schema.json";
+import shiftSchema from "../../../tools/shift-cost/schema.json";
+import fuyouSchema from "../../../tools/fuyou-nokori/schema.json";
 
 /**
  * slug → ツールUI（client component）の対応表。ツールを1本追加するたびにここへ1行足す。
@@ -10,6 +12,8 @@ import toushinSchema from "../../../tools/toushin-cost/schema.json";
 export const toolComponents: Record<string, ComponentType> = {
   "yutai-cross-cost": dynamic(() => import("../../../tools/yutai-cross-cost/ui")),
   "toushin-cost": dynamic(() => import("../../../tools/toushin-cost/ui")),
+  "shift-cost": dynamic(() => import("../../../tools/shift-cost/ui")),
+  "fuyou-nokori": dynamic(() => import("../../../tools/fuyou-nokori/ui")),
 };
 
 /**
@@ -19,6 +23,8 @@ export const toolComponents: Record<string, ComponentType> = {
 export const toolContent: Record<string, ComponentType> = {
   "yutai-cross-cost": dynamic(() => import("../../../tools/yutai-cross-cost/content.mdx")),
   "toushin-cost": dynamic(() => import("../../../tools/toushin-cost/content.mdx")),
+  "shift-cost": dynamic(() => import("../../../tools/shift-cost/content.mdx")),
+  "fuyou-nokori": dynamic(() => import("../../../tools/fuyou-nokori/content.mdx")),
 };
 
 /** ツールの構造化データ（schema.json）。FAQPage をページに JSON-LD として注入する。 */
@@ -29,4 +35,6 @@ export interface ToolSchema {
 export const toolSchemas: Record<string, ToolSchema> = {
   "yutai-cross-cost": yutaiSchema as ToolSchema,
   "toushin-cost": toushinSchema as ToolSchema,
+  "shift-cost": shiftSchema as ToolSchema,
+  "fuyou-nokori": fuyouSchema as ToolSchema,
 };

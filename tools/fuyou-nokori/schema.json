@@ -1,0 +1,19 @@
+{
+  "webApplication": {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "扶養の壁 あといくら働ける？（残り年収・毎月/週の上限）",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" }
+  },
+  "faqPage": {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "残り月数は何を入れる？", "acceptedAnswer": { "@type": "Answer", "text": "年収は1〜12月の合計が基準です。今月から12月までの残り月数（今月を含む）を入れてください。" } },
+      { "@type": "Question", "name": "どの壁を選べばいい？", "acceptedAnswer": { "@type": "Answer", "text": "扶養の目的により異なります。社会保険の扶養なら130万円、配偶者特別控除の満額の目安なら150万円などです。金額・条件は制度改正で変わるため、勤務先や公的機関で確認してください。" } },
+      { "@type": "Question", "name": "この金額どおりに働けば必ず扶養内ですか？", "acceptedAnswer": { "@type": "Answer", "text": "概算です。交通費の扱いや社会保険の適用は勤務先の規模・制度・年により異なります。最終判断は勤務先や専門家にご確認ください。" } }
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "slug": "shift-cost",
+  "title": "シフト人件費・必要時間 計算（人件費率・人時売上高）",
+  "description": "月間売上・平均時給・目標人件費率を入れると、使える人件費と総労働時間、人時売上高、現状の人件費率と過不足（削れる/増やせる時間）を概算します。飲食・小売のシフト作成に。",
+  "keywords": ["人件費率 計算", "シフト 人件費 計算", "人時売上高 計算", "飲食店 人件費 目安"],
+  "category": "お店の経営計算",
+  "rail": "B",
+  "affiliate_targets": ["シフト管理SaaS", "勤怠管理SaaS", "POSレジ"],
+  "formula_sources": [
+    "人件費率 = 人件費 ÷ 売上高 × 100、人時売上高 = 売上高 ÷ 総労働時間。飲食店の人件費率は売上の25〜30%、FL比率55%が一般的な目安（業界一般指標。例：カシオHANJO TOWN https://tenpo.casio.jp/ , cotta https://www.cotta.jp/business/ ）。",
+    "労働時間・休憩・割増賃金などの法令上の定義は厚生労働省：https://www.mhlw.go.jp/bunya/roudoukijun/roudoujouken02/jikan.html"
+  ]
+}

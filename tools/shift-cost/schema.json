@@ -1,0 +1,19 @@
+{
+  "webApplication": {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "シフト人件費・必要時間 計算（人件費率・人時売上高）",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" }
+  },
+  "faqPage": {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "人件費率の目安は？", "acceptedAnswer": { "@type": "Answer", "text": "飲食店では売上の25〜30%、食材費を含むFL比率で55%程度が一般的な目安とされます。業態や立地で異なるため、自店の目標値を入力してください。" } },
+      { "@type": "Question", "name": "人時売上高とは？", "acceptedAnswer": { "@type": "Answer", "text": "売上高を総労働時間で割った指標で、1労働時間あたりいくら売り上げたかを表します。シフトの過不足を判断する目安になります。" } },
+      { "@type": "Question", "name": "このツールでシフト表は作れますか？", "acceptedAnswer": { "@type": "Answer", "text": "シフト表自体は作成しません。人件費・必要時間・人件費率の計算に特化しています。シフト表作成は専用ツール/SaaSが便利です。" } }
+    ]
+  }
+}

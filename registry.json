@@ -1,6 +1,6 @@
 {
   "$schema": "./registry.schema.json",
-  "updatedAt": "2026-06-17",
+  "updatedAt": "2026-06-22",
   "tools": [
     {
       "slug": "yutai-cross-cost",
@@ -34,6 +34,36 @@
       "quality_gate_passed": true,
       "url": "",
       "publishedAt": "2026-06-17",
+      "metricsRef": ""
+    },
+    {
+      "slug": "shift-cost",
+      "title": "シフト人件費・必要時間 計算（人件費率・人時売上高）",
+      "industry": "飲食・小売の店長/シフト作成者",
+      "task": "目標人件費率から使える人件費・労働時間を逆算し、現状の人件費率と過不足を出す",
+      "rail": "B",
+      "category": "お店の経営計算",
+      "formula_sources": ["人件費率=人件費÷売上、人時売上高=売上÷総労働時間（業界一般指標）"],
+      "affiliate_targets": ["シフト管理SaaS", "勤怠管理SaaS", "POSレジ"],
+      "status": "live",
+      "quality_gate_passed": true,
+      "url": "",
+      "publishedAt": "2026-06-22",
+      "metricsRef": ""
+    },
+    {
+      "slug": "fuyou-nokori",
+      "title": "扶養の壁 あといくら働ける？残り年収と毎月・週の上限を計算",
+      "industry": "扶養内で働くパート/学生",
+      "task": "既に稼いだ額と残り月数から、壁までの残り年収と毎月/週の労働上限を逆算する",
+      "rail": "B",
+      "category": "扶養・働き方",
+      "formula_sources": ["残り=壁−既稼ぎ、毎月上限=残り÷残り月数、週上限時間=毎月上限÷時給÷(52/12)。厚労省 年収の壁 https://www.mhlw.go.jp/stf/taiou_001_00002.html"],
+      "affiliate_targets": ["求人・派遣（パート/アルバイト）", "家計・保険相談"],
+      "status": "live",
+      "quality_gate_passed": true,
+      "url": "",
+      "publishedAt": "2026-06-22",
       "metricsRef": ""
     }
   ]
